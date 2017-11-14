@@ -5,5 +5,14 @@ $( document ).ready(function() {
     var length = $(this).val().length;
     var length = maxLength-length;
     $('.counter').text(length);
+
+    // change color of text after limit is reached
+    if($(this).val().length > 140){
+                    $(".counter").css("color", "red");
+                } else {
+                    $(".counter").css("color", "black");
+                }
+
   });
+
 });
