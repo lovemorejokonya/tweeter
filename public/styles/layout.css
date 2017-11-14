@@ -29,6 +29,7 @@ body {
   width:450px;
   margin:auto;
   background: white;
-  height:140px;
+  height:auto;
+  padding:2em;
 
 }
