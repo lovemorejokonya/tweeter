@@ -17,3 +17,11 @@
   line-height:80px;
   font-size:64px;
 }
+
+#nav-bar .composeButton {
+  background-color:white;
+  border-color:transparent;
+  /*background-image: url(/images/compose.svg);*/
+  height: 35px;
+float: right;
+}

@@ -132,6 +132,15 @@ function renderTweets(tweets) {
 
 //render tweets when document is ready
 $(document).ready( function () {
+
+   $("section.new-tweet").hide();
+  // On click event to toggle the form
+  $("#compose").on("click", function(){
+    $("section.new-tweet").slideToggle();
+    //set focus on text box
+    $("#tweetTextBox").focus();
+  });
+
  // load tweets at form load
  loadTweets();
 
