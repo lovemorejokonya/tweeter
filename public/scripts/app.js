@@ -121,5 +121,19 @@ function renderTweets(tweets) {
 
 //render tweets when document is ready
 $(document).ready( function () {
- renderTweets(data);
+ // renderTweets(data);
+
+ function loadTweets(){
+    $.ajax({
+      url: "/tweets",
+      method: 'GET',
+      success: function (moreTweetsJson) {
+        renderTweets(moreTweetsJson)
+        // console.log('Success: ', renderTweets(moreTweetsJson));
+      }
+    });
+ }
+
+ loadTweets();
+
 });

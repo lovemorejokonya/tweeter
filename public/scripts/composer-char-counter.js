@@ -25,11 +25,20 @@ $( document ).ready(function() {
   });
 
 // prevent default submission of form and redirection
-$(this).click(function( event ) {
+$("#tweetForm").submit(function( event ) {
   event.preventDefault();
-  console.log ( "default " + event.type + " prevented" );
-  const tweetText = $("form").serialize();
-  console.log(tweetText );
+  // console.log ( "default " + event.type + " prevented" );
+  const tweetData = $("#tweetForm").serialize();
+  // console.log(tweetData);
+  // do post request using ajax
+  $.ajax({
+              url: "/tweets",
+              type: "post",
+              data: tweetData,
+              success: function(d) {
+                  console.log(d);
+              }
+          });
 });
 
 });
