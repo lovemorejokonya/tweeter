@@ -28,6 +28,8 @@ $( document ).ready(function() {
 $(this).click(function( event ) {
   event.preventDefault();
   console.log ( "default " + event.type + " prevented" );
+  const tweetText = $("form").serialize();
+  console.log(tweetText );
 });
 
 });
