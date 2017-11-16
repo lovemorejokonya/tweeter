@@ -15,4 +15,13 @@ $( document ).ready(function() {
 
   });
 
+
+      $("article").hover(function () {
+        $(this).find(".icons").show();
+        $(this).css("border-color", "black");
+    },function () {
+        $(this).find(".icons").hide();
+        $(this).css("border-color", "lightgrey");
+    });
+
 });

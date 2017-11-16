@@ -72,7 +72,7 @@
 }
 
 #tweets .icons{
-  /*display: none;*/
+  display: none;
   padding-top :5px;
   padding-right :3px;
   width: 30px;
