@@ -55,26 +55,25 @@ var data = [
 
 
 function createTweetElement(object){
-    $tweet = $("<article>").addClass("tweetArticle");
+    $tweet = $("<article>").addClass("tweetsArticle");
     $header = $("<header>");
     $content = $("<content>");
     $profilepic = $("<img>").addClass("profilepic").attr("src", object.user.avatars.small );
-    $userName = $("<h2>").text(object.user.name);
+    $userName = $("<h3>").text(object.user.name);
     $tweeterHandle = $("<h4>").text(object.user.handle);
-    $tweetContent = $("<p>").text(object.content.text);
-    $tweetContent1 = $content.append($tweetContent)
-    // $footer = $("<footer>");
+    $tweetParagraph = $("<p>").text(object.content.text);
+
     // method to the time lapse
     $countDays = Math.floor((Date.now() - object.created_at) / (1000 * 60 * 60 * 24));
     $footer = $("<footer>").text($countDays + " days ago");
-    $icons = $("<img>").addClass("icons").attr("src", "/images/heart.svg");
-    // $iconsFlag = $("<img>").addClass("icons").attr("src","/images/heart.svg");
-    // $iconsRetweet = $("<i>").addClass("fa fa-retweet”).attr("aria-hidden”, true);
-    // $iconsHeart = $("<i>").addClass("fa fa-heart”).attr("aria-hidden”, true);
-    // $icons = $icons.append($iconsFlag); //.append($iconsRetweet).append($iconsHeart)
+    $iconsHeart = $("<img>").addClass("icons").attr("src", "/images/heart.svg");
+    $iconsRetweet = $("<img>").addClass("icons").attr("src", "/images/retweet.svg")
+    $iconsFlag = $("<img>").addClass("icons").attr("src", "/images/flag.svg")
+
     $header = $header.append($profilepic).append($userName).append($tweeterHandle);
-    $footer = $footer.append($icons)
-    $tweet = $tweet.append($header).append($tweetContent1).append($footer);
+    $content = $content.append($tweetParagraph)
+    $footer = $footer.append($iconsHeart).append($iconsRetweet).append($iconsFlag);
+    $tweet = $tweet.append($header).append($content).append($footer);
     $section = $("#tweets").append($tweet)
     return $section;
   }
