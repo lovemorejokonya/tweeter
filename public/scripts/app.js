@@ -54,40 +54,67 @@ var data = [
 ];
 
 
-function createTweetElement(tweetData) {
+function createTweetElement(object){
+    $tweet = $("<article>").addClass("tweetArticle");
+    $header = $("<header>");
+    $content = $("<content>");
+    $profilepic = $("<img>").addClass("profilepic").attr("src", object.user.avatars.small );
+    $userName = $("<h2>").text(object.user.name);
+    $tweeterHandle = $("<h4>").text(object.user.handle);
+    $tweetContent = $("<p>").text(object.content.text);
+    $tweetContent1 = $content.append($tweetContent)
+    // $footer = $("<footer>");
+    // method to the time lapse
+    $countDays = Math.floor((Date.now() - object.created_at) / (1000 * 60 * 60 * 24));
+    $footer = $("<footer>").text($countDays + " days ago");
+    $icons = $("<img>").addClass("icons").attr("src", "/images/heart.svg");
+    // $iconsFlag = $("<img>").addClass("icons").attr("src","/images/heart.svg");
+    // $iconsRetweet = $("<i>").addClass("fa fa-retweet”).attr("aria-hidden”, true);
+    // $iconsHeart = $("<i>").addClass("fa fa-heart”).attr("aria-hidden”, true);
+    // $icons = $icons.append($iconsFlag); //.append($iconsRetweet).append($iconsHeart)
+    $header = $header.append($profilepic).append($userName).append($tweeterHandle);
+    $footer = $footer.append($icons)
+    $tweet = $tweet.append($header).append($tweetContent1).append($footer);
+    $section = $("#tweets").append($tweet)
+    return $section;
+  }
+// });
 
-  // declare variables and pull data from tweets object
-  const tweeterHandle = tweetData['user']['handle'];
-  const userName = tweetData['user']['name'];
-  const profilepic = tweetData['user']['avatars']['small'];
-  const tweetContent = tweetData['content']['text'];
-  const created_at = tweetData['created_at'];
+// function createTweetElement(tweetData) {
 
-  //create HTML frame
-  const html_version = `<section id="tweets">
-                          <article class= "tweetsArticle">
-                            <header>
-                              <img class="profilepic" src="${profilepic}">
-                              <h3>${userName}</h3>
-                              <h4> ${tweeterHandle}</h4>
-                            </header>
-                            <content>
-                            <p>${tweetContent}</p>
-                            </content>
-                            <footer>
-                              10 days ago
-                              <img class="icons" src="/images/heart.svg"> </img>
-                              <img class="icons" src="/images/retweet.svg"> </img>
-                              <img class="icons" src="/images/flag.svg"> </img>
-                            </footer>
-                          </article>
-                        </section>`
-  return html_version
-}
+//   // declare variables and pull data from tweets object
+//   const tweeterHandle = tweetData['user']['handle'];
+//   const userName = tweetData['user']['name'];
+//   const profilepic = tweetData['user']['avatars']['small'];
+//   const tweetContent = tweetData['content']['text'];
+//   const created_at = tweetData['created_at'];
 
-//loop through the tweets object and create html for each tweet
+//   //create HTML frame
+//   const html_version = `<section id="tweets">
+//                           <article class= "tweetsArticle">
+//                             <header>
+//                               <img class="profilepic" src="${profilepic}">
+//                               <h3>${userName}</h3>
+//                               <h4> ${tweeterHandle}</h4>
+//                             </header>
+//                             <content>
+//                             <p>${tweetContent}</p>
+//                             </content>
+//                             <footer>
+//                               10 days ago
+//                               <img class="icons" src="/images/heart.svg"> </img>
+//                               <img class="icons" src="/images/retweet.svg"> </img>
+//                               <img class="icons" src="/images/flag.svg"> </img>
+//                             </footer>
+//                           </article>
+//                         </section>`
+//   return html_version
+// }
+
+// //loop through the tweets object and create html for each tweet
 function renderTweets(tweets) {
   for(var tweet in tweets){
+    console.log(tweet)
    var $tweet = createTweetElement(tweets[tweet]);
    $('.container').append($tweet);
  }
