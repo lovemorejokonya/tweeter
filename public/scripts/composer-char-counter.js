@@ -27,13 +27,8 @@ $( document ).ready(function() {
 // prevent default submission of form and redirection
 $("#tweetForm").submit(function( event ) {
   event.preventDefault();
-  // error handling
-  // console.log($(this).find("textarea").val());
-  // if ($(this).find("textarea").val() = ""){
-  //   $errorMessage = $("<div>").text(object.content.text);
-  //   $content = $("new-tweet").append($errorMessage);
-  // }
-  if($("textarea").val().length == 0 || $("textarea").val().length > 2){
+  //validate tweet text area
+  if($("textarea").val().length == 0 || $("textarea").val().length > 140){
     validate();
   } else {
     //clear errorMessage HTMNL
@@ -47,6 +42,7 @@ $("#tweetForm").submit(function( event ) {
                 data: tweetData,
                 success: function(d) {
                     console.log(d);
+                    loadTweets()
                 }
             });
     }
@@ -59,10 +55,7 @@ function validate() {
     x = $(this).find("textarea").val();
     try {
         if($("textarea").val().length == 0)  throw "You can not submit an empty tweet. Please enter something!";
-        if($("textarea").val().length > 2) throw "You can not submit more than 140 characters";
-        // x = Number(x);
-        // if(x < 5)    throw "too low";
-        // if(x > 10)   throw "too high";
+        if($("textarea").val().length > 140) throw "You can not submit more than 140 characters";
     }
     catch(err) {
         errorMessage.innerHTML = err;

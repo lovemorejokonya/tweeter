@@ -74,8 +74,7 @@ function createTweetElement(object){
     $content = $content.append($tweetParagraph)
     $footer = $footer.append($iconsHeart).append($iconsRetweet).append($iconsFlag);
     $tweet = $tweet.append($header).append($content).append($footer);
-    $section = $("#tweets").append($tweet)
-    return $section;
+    return $tweet;
   }
 // });
 
@@ -115,25 +114,25 @@ function renderTweets(tweets) {
   for(var tweet in tweets){
     console.log(tweet)
    var $tweet = createTweetElement(tweets[tweet]);
-   $('.container').append($tweet);
+   $("#tweets").prepend($tweet);
  }
 };
 
-//render tweets when document is ready
-$(document).ready( function () {
- // renderTweets(data);
-
+// function to renderTweets(data);
  function loadTweets(){
+  $("#tweets").empty();
     $.ajax({
       url: "/tweets",
       method: 'GET',
       success: function (moreTweetsJson) {
         renderTweets(moreTweetsJson)
-        // console.log('Success: ', renderTweets(moreTweetsJson));
       }
     });
  }
 
+//render tweets when document is ready
+$(document).ready( function () {
+ // load tweets at form load
  loadTweets();
 
 });
