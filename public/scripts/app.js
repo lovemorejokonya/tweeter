@@ -77,9 +77,11 @@ $("#tweetForm").submit(function( event ) {
                 type: "post",
                 data: tweetData,
                 success: function(d) {
-                    loadTweets()
+                    loadTweets();
                 }
             });
+      // clear text field after form submission
+      $(this).find("textarea").val("");
     }
 });
 
