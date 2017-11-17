@@ -7,7 +7,7 @@ $( document ).ready(function() {
     $('.counter').text(length);
 
     // change color of text after limit is reached
-    if($(this).val().length > 140){
+    if($(this).val().length > maxLength){
                     $(".counter").css("color", "red");
                 } else {
                     $(".counter").css("color", "black");

@@ -82,6 +82,8 @@ $("#tweetForm").submit(function( event ) {
             });
       // clear text field after form submission
       $(this).find("textarea").val("");
+      // reset character count value to 140 after clearing text
+       $(this).find(".counter").text("140");
     }
 });
 
