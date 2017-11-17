@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+This project was built using HTML, CSS, JS, jQuery, AJAX for front-end , and Node, Express and MongoDB for back-end.
 
 ## Getting Started
 
@@ -15,3 +15,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- chance
+- mongodb
+- body-parser
+- md5
+
+## Screenshots
+
+!["Screen shot for Creating new tweet"](https://github.com/lovemorejokonya/tweeter/blob/master/screen_shots/compose_tweets.png)
+!["Screenshot for viewing tweets"](https://github.com/lovemorejokonya/tweeter/blob/master/screen_shots/view_tweets.png)
