@@ -41,7 +41,6 @@ $("#tweetForm").submit(function( event ) {
                 type: "post",
                 data: tweetData,
                 success: function(d) {
-                    console.log(d);
                     loadTweets()
                 }
             });
