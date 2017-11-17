@@ -3,8 +3,6 @@
   border-width: 0px;
   border-color: lightgrey;
   margin-top: 100px;
-  margin-right: 10px;
-  margin-left: 10px;
   height: auto;
 }
 
@@ -13,10 +11,8 @@
   border-width: 1px;
   border-color: lightgrey;
   border-radius: 10px;
-  padding:0em;
   background-color: white;
   margin-top: 60px;
-  /*border-radius: 5px;*/
 }
 
 #tweets article header {
@@ -32,26 +28,18 @@
   border-radius: 20%;
   float:left;
   padding-right: 10px;
-  padding-bottom: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px 10px 10px 10px;
 }
- #tweets h3{
-
+ #tweets header h3 {
   display: inline;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 25px;
-  padding: 8px;
+  font-size: 30px;
 }
 
-#tweets h4{
+#tweets header h4{
   float: right;
   padding-right: 10px;
-  padding-top: 10px;
   display:inline;
+  margin:3%;
 }
 
 #tweets p {
