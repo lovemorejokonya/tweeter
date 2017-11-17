@@ -17,8 +17,6 @@
   background-color: white;
   margin-top: 60px;
   /*border-radius: 5px;*/
-
-
 }
 
 #tweets article header {
@@ -78,4 +76,7 @@
   width: 30px;
   height: 30px;
   float: right;
+}
+#tweets article:hover .icons {
+  display: block;
 }

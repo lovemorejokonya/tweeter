@@ -5,7 +5,7 @@
  */
 
 function createTweetElement(object){
-  if(object.user){
+  // if(object.user){
     $tweet = $("<article>").addClass("tweetsArticle");
     $header = $("<header>");
     $content = $("<content>");
@@ -26,7 +26,7 @@ function createTweetElement(object){
     $footer = $footer.append($iconsHeart).append($iconsRetweet).append($iconsFlag);
     $tweet = $tweet.append($header).append($content).append($footer);
     return $tweet;
-  }
+  // }
 }
 
 // //loop through the tweets object and create html for each tweet
@@ -52,6 +52,7 @@ function renderTweets(tweets) {
 //render tweets when document is ready
 $(document).ready( function () {
 
+// compose button toggle feature
    $("section.new-tweet").hide();
   // On click event to toggle the form
   $("#compose").on("click", function(){
@@ -60,7 +61,46 @@ $(document).ready( function () {
     $("#tweetTextBox").focus();
   });
 
- // load tweets at form load
+
+  // prevent default submission of form and redirection
+$("#tweetForm").submit(function( event ) {
+  event.preventDefault();
+  //validate tweet text area
+  if($("textarea").val().length == 0 || $("textarea").val().length > 140){
+    validate();
+  } else {
+    //clear errorMessage HTMNL
+    errorMessage = document.getElementById("errorMessage");
+    errorMessage.innerHTML = "";
+    const tweetData = $("#tweetForm").serialize();
+    // do post request using ajax
+    $.ajax({
+                url: "/tweets",
+                type: "post",
+                data: tweetData,
+                success: function(d) {
+                    loadTweets()
+                }
+            });
+    }
+});
+
+//function to validate the text entered in the tweet text box
+function validate() {
+    var errorMessage, x;
+    errorMessage = document.getElementById("errorMessage");
+    errorMessage.innerHTML = "";
+    x = $(this).find("textarea").val();
+    try {
+        if($("textarea").val().length == 0)  throw "You can not submit an empty tweet. Please enter something!";
+        if($("textarea").val().length > 140) throw "You can not submit more than 140 characters";
+    }
+    catch(err) {
+        errorMessage.innerHTML = err;
+    }
+}
+
+// load tweets at form load
  loadTweets();
 
 });
