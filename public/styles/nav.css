@@ -19,9 +19,8 @@
 }
 
 #nav-bar .composeButton {
+  margin-top: 2%;
   background-color:white;
-  border-color:transparent;
-  /*background-image: url(/images/compose.svg);*/
   height: 35px;
-float: right;
+  float: right;
 }

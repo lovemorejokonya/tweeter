@@ -5,7 +5,6 @@
  */
 
 function createTweetElement(object){
-  // if(object.user){
     $tweet = $("<article>").addClass("tweetsArticle");
     $header = $("<header>");
     $content = $("<content>");
@@ -26,7 +25,6 @@ function createTweetElement(object){
     $footer = $footer.append($iconsHeart).append($iconsRetweet).append($iconsFlag);
     $tweet = $tweet.append($header).append($content).append($footer);
     return $tweet;
-  // }
 }
 
 // //loop through the tweets object and create html for each tweet
