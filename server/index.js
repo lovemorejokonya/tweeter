@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 //actual database
 const MongoClient = require("mongodb").MongoClient;  // same as const {MongoClient} = require("mongodb"); (destructuring assignment)
-const MONGODB_URI = "mongodb://lovejuser:lovejpassword@ds237967.mlab.com:37967/tweeter-clone-lj";
+const MONGODB_URI = MONGODB_URI;
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
